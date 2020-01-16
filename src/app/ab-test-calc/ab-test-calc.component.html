@@ -1,0 +1,75 @@
+<aside>
+  <div class="asideSection">
+    <h1>A/B-test calculator</h1>
+    <strong>Is your test result significant? Does it have enough power?</strong>
+    <p>Play with the controls and get a better feel for how a lower confidence level will boost the power or how an
+      increase in test size can make a small CR-difference significant!</p>
+  </div>
+
+  <form>
+    <div class="asideSection ">
+      <h2>Test data</h2>
+
+      <div class="columnContainer">
+        <div class="column">
+          <div class="inputContainer">
+            <label for="visitorsA">Visitors A</label>
+            <input [(ngModel)]="dataValues.visitorsA" #ctrl="ngModel" (change)="log()"  name="visitorsA" id="visitorsA" type="number">
+          </div>
+          <div class="inputContainer">
+            <label for="conversionsA">Conversions A</label>
+            <input [(ngModel)]="dataValues.conversionsA" #ctrl="ngModel" (change)="log()" name="conversionsA" id="conversionsA" type="number">
+          </div>
+        </div>
+        <div class="column">
+          <div class="inputContainer">
+            <label for="visitorsB">Visitors B</label>
+            <input [(ngModel)]="dataValues.visitorsB" #ctrl="ngModel" (change)="log()" name="visitorsB" id="visitorsB" type="number">
+          </div>
+          <div class="inputContainer">
+            <label for="conversionsB">Conversions B</label>
+            <input [(ngModel)]="dataValues.conversionsB" #ctrl="ngModel" (change)="log()" name="conversionsB" id="conversionsB" type="number">
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="asideSection rowWrap">
+      <h2>Settings</h2>
+      <div class="radioContainer">
+        <label for="confidence" class="tooltip">Confidence</label>
+        <div class="radio">
+          <input [(ngModel)]="dataValues.confidence" name="confidence" type="radio" value="0.90" checked="checked">90%
+        </div>
+        <div class="radio">
+          <input [(ngModel)]="dataValues.confidence" name="confidence" type="radio" value="0.95">95%
+        </div>
+        <div class="radio">
+          <input [(ngModel)]="dataValues.confidence" name="confidence" type="radio" value="0.99">99%
+        </div>
+      </div>
+      <div class="radioContainer">
+        <label for="hypothesis" class="tooltip" (mouseover)=hover($event)
+          data-tooltip="Do you wish to be confident whether the conversion rate of B is lower? If you choose 1-sided then no conclusive statement can be made if the conversion rate of B is lower than of A.">Hypothesis</label>
+        <div class="radio">
+          <input [(ngModel)]="dataValues.hypothesis" name="hypothesis" type="radio" value="1">one-sided
+        </div>
+        <div class="radio">
+          <input [(ngModel)]="dataValues.hypothesis" name="hypothesis" type="radio" value="2">two-sided
+        </div>
+      </div>
+
+      <input class="cta" type="submit" value="Apply changes">
+    </div>
+  </form>
+</aside>
+
+<main>
+  <div class="messageContainer">
+    <h2>Significant test result!</h2>
+    <p>Variation B's observed conversion rate (2.12%) was <strong>6.00% higher</strong> than variation A's conversion
+      rate (2.00%). You can be <strong>95% confident</strong> that this result is a consequence of the changes you made
+      and not a result of random chance.
+    </p>
+  </div>
+</main>

@@ -1,0 +1,64 @@
+<aside>
+  <div class="asideSection">
+    <h1>Bayesian A/B-test Calculator</h1>
+    <p>What is the probability that your test variation beats the original? Make a solid risk assessment whether to
+      implement the variation or not.
+      Need Help? Read more about a Bayesian test approach.</p>
+  </div>
+
+  <form action="">
+    <div class="asideSection">
+      <h2>Test data</h2>
+
+      <div class="columnContainer">
+        <div class="column">
+          <div class="inputContainer">
+            <label for="visitorsA">Visitors A</label>
+            <input [(ngModel)]="dataValues.visitorsA" (change)="log()" name="visitorsA" id="visitorsA" type="number">
+          </div>
+          <div class="inputContainer">
+            <label for="conversionsA">Conversions A</label>
+            <input [(ngModel)]="dataValues.conversionsA" (change)="log()" name="conversionsA" id="conversionsA" type="number">
+          </div>
+        </div>
+        <div class="column">
+          <div class="inputContainer">
+            <label for="visitorsB">Visitors B</label>
+            <input [(ngModel)]="dataValues.visitorsB" (change)="log()" name="visitorsB" id="visitorsB" type="number">
+          </div>
+          <div class="inputContainer">
+            <label for="conversionsB">Conversions B</label>
+            <input [(ngModel)]="dataValues.conversionsB" (change)="log()" name="conversionsB" id="conversionsB" type="number">
+          </div>
+        </div>
+
+      </div>
+      <input class="cta" type="submit" value="Make calculation">
+    </div>
+
+    <div class="asideSection">
+      <h2>Business case data (optional)</h2>
+      <div class="inputContainer">
+        <label for="testDuration">Test duration in days</label>
+        <input id="testDuration" type="number">
+      </div>
+      <div class="inputContainer percentage">
+        <label for="testTraffic">Traffic in test</label>
+        <input id="testTraffic" class="percentage" type="number" (focus)='euroFocus($event)' (blur)='euroFocus($event)'>
+      </div>
+      <div class="inputContainer euro">
+        <label for="averageValue">Average order value</label>
+        <input id="averageValue" type="number" (focus)='euroFocus($event)' (blur)='euroFocus($event)'>
+      </div>
+      <div class="inputContainer euro">
+        <label for="minRevenue">Min. revenue yield in 6 months</label>
+        <input id="minRevenue"  type="number" (focus)='euroFocus($event)' (blur)='euroFocus($event)'>
+      </div>
+      <input class="cta" type="submit" value="Calculate + Business case">
+    </div>
+  </form>
+</aside>
+
+<main>
+
+</main>

@@ -1,0 +1,25 @@
+form {
+  .asideSection {
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+
+  .columnContainer {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .column {
+    width: 50%;
+
+    input {
+      width: 90%;
+    }
+  }
+
+  .radioContainer {
+    width: 50%;
+  }
+}

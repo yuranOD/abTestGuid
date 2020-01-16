@@ -1,1 +1,279 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+
+$primaryFont: 'Montserrat', sans-serif;
+$primaryColor: #0A5504;
+$secondaryColor: #F7F7F7;
+
+app-ab-test-calc {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+app-bayes-calc {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+* {
+  text-decoration: none;
+  color: black;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: $primaryFont;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+body {
+  background: $secondaryColor;
+  padding-top: 80px;
+}
+
+main {
+  width: 70%;
+}
+
+h1, h2, h3 {
+  color: $primaryColor;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+strong {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.rowWrap {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.inputContainer {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+input {
+  padding: 10px;
+  border-radius: 4px;
+  border: 2px solid #e8e8e8;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: $primaryColor;
+}
+
+.euro {
+  position: relative;
+
+  &:before {
+    content: "€";
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 27px;
+    height: 39px;
+    background: #e8e8e8;
+    position: absolute;
+    bottom: 20px;
+    z-index: 1;
+  
+    border-radius: 3px;
+  }
+
+  input {
+    width: calc(100% - 25px);
+    z-index: 2;
+    margin-left: auto;
+  }
+}
+
+.percentage {
+  position: relative;
+
+  &:after {
+    content: "%";
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 27px;
+    height: 39px;
+    background: #e8e8e8;
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+    z-index: 1;
+  
+    border-radius: 3px;
+  }
+
+  input {
+    width: calc(100% - 25px);
+    z-index: 2;
+    margin-right: auto;
+  }
+}
+
+.euro.focus,
+.percentage.focus {
+  &:before {
+    color: #fff;
+    background: $primaryColor;
+  }
+  &:after {
+    color: #fff;
+    background: $primaryColor;
+  }
+}
+
+.radio {
+  position: relative;
+
+  input {
+    display: inline-block;
+    margin: 0 15px 15px 0;
+    padding-left: 10px;
+    position: relative;
+
+    &:checked {
+      &:after {
+        background: $primaryColor;
+      }
+    }
+  
+    &:before {
+      content: "";
+      width: 15px;
+      height: 15px;
+      background-color: #ffffff;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      border: 2px solid #e8e8e8;
+      border-radius: 50%;
+    }
+
+    &:after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background-color: #ffffff;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      border-radius: 50%;
+    }
+  }
+
+  
+}
+
+.cta {
+  margin: 20px 0;
+  border: none;
+  background: #F8B81F;
+  padding: 10px 30px;
+  border-radius: 50px;
+  color: #ffffff;
+  font-weight: 600;
+
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+}
+
+.cta:hover {
+  transform: scale(1.05);
+}
+
+aside {
+  width: 30%;
+  max-width: 400px;
+  height: 100%;
+  padding: 20px 0;
+  background: #ffffff;
+  position: relative;
+
+  .asideSection {
+    padding: 30px 40px;
+    border-bottom: 3px solid #EEEEEE;
+    position: relative;
+    z-index: 3;
+  }
+}
+
+aside:after {
+  content: '';
+  display: block;
+  width: 350px;
+  height: 350px;
+  background: #F4F7F4;
+  border-radius: 50%;
+
+  position: absolute;
+  bottom: 15vh;
+  left: -50%;
+}
+
+.messageContainer {
+  width: 80%;
+  max-width: 600px;
+  margin: 50px auto 0;
+  padding: 20px 30px;
+  background-color: #ffffff;
+  border-left: 4px solid #72B954;
+  box-shadow: 4px 4px 10px 0px rgba(204, 204, 204, .5);
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  strong {
+    font-size: inherit;
+  }
+}
+
+.tooltip:after {
+  content: '?';
+  color: #fff;
+  font-size: 10px;
+  text-align: center;
+  background: $primaryColor;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
