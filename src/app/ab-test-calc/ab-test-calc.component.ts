@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { InputDataControllerService } from '../input-data-controller.service';
-const { jStat } = require('jstat');
+// const { jStat } = require('jstat');
 
 @Component({
   selector: 'app-ab-test-calc',
